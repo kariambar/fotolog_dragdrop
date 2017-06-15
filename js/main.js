@@ -83,3 +83,29 @@ function drop(ev) {
   var id_foto = ev.dataTransfer.getData('text');
   ev.target.appendChild(document.getElementById(id_foto));
 }
+
+/*Inicio de ejercicio guiado*/
+
+// Crearemos la funcion para arrastrar
+function drag(ev){
+  console.log(ev.target.id); // verificamos en consola lo que va ocurriendo
+  // indicamos el tipo de dato que vamos a insertar
+  ev.dataTransfer.setData('text', ev.target.id); // generamos la acción con setData
+}
+
+// inicializamos Drop
+function permitirDrop(ev){ 
+  // evitamos que el navegador manipule nuestros datos
+  ev.preventDefault(); // es importante que siempre usemos el evento ev.preventDefault();, para controlar que el navegador no manipule nuestros datos.
+}
+
+// creamos una variable para obtener el elemento con getData.
+function drop(ev){
+  ev.preventDefault();
+  // tomamos el dato que hemos arrastrado
+  var id_foto = ev.dataTransfer.getData('text'); // traemos el dato tipo texto
+  // agregamos el elemento arrastrado al elemento en el que se produjo el evento ondrop.
+  ev.target.appendChild(document.getElementById(id_foto)); // hacemos que se haga parte del contenedor padre con appendChild.
+
+}
+/*Fin ejercicio guiado*/
